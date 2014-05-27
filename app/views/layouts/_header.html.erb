@@ -31,6 +31,10 @@
       <li id="export_tab" class="<%= current_page_class(export_path) %>">
         <%= link_to t('layouts.export'), export_path, :class => 'tab geolink' %>
       </li>
+      <!-- add another li here and see what happens -->
+      <li id="time_slider_mock" class="<%= current_page_class(export_path) %>">
+        <%= link_to "Time Slider", export_path, :class => 'tab geolink' %>
+      </li>
     </ul>
   </nav>
   <nav class='secondary'>
