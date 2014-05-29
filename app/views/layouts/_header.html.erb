@@ -37,8 +37,9 @@
   <nav class='primary'>
     <ul>
       <!-- add another li here and see what happens -->
-      <li id="time_slider_mock" class="<%= current_page_class(export_path) %>">
+      <li id="time_slider_mock" class="dropdown <%= current_page_class(export_path) %>">
         <%= link_to "When Would You Like to See?", export_path, :class => 'tab geolink' %>
+        
       </li>
       <li>
         <div>The Time Slider Will Go Here?</div>
