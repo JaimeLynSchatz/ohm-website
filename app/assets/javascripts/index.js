@@ -327,20 +327,28 @@ $(document).ready(function () {
   $(".time_search").on("submit", function(e) {
     e.preventDefault();
     var query = $(this).find("input[data-step=year]").val();
-    console.log("I'm right here!" + query);
-    console.log("/search?query=" + encodeURIComponent(query) + OSM.formatHash(map));
+    console.log("I'm right here! " + query);
+    console.log("We've got:   /search?query=" + encodeURIComponent(query) + OSM.formatHash(map));
     console.log("OSM.formatHash(map) = " + OSM.formatHash(map));
     // we're trying something new here
-    if query == "2008 CE"{
-      OSM.router.route("#map=16/40.7863/-119.2066"+ "&layers=8");
+    
+    console.log("Works until here - commented out questionable code");
+    
+    if(query == "2008 CE"){
+      console.log("query == 2008 CE triggered");
+      OSM.router.route("/#map=16/40.7863/-119.2066"+ "&layers=8");
     }
-    else if query == "2009 CE" {
-      OSM.router.route("#map=16/40.7863/-119.2066" + "&layers=9");
+    
+    else if (query == "2009 CE") {
+      console.log("query == 2009 CE triggered");
+      OSM.router.route("/#map=16/40.7863/-119.2066" + "&layers=9");
     }
     else {
-      OSM.router.route("/search?query=" + encodeURIComponent(query));//+ OSM.formatHash(map));
+      console.log("Here's where the big bad gets called in index.js line 342");
+      OSM.router.route("/search?query=" + encodeURIComponent(query)+ OSM.formatHash(map));
     }
-  })
+    
+  });
 
   $(".search_form").on("submit", function(e) {
     e.preventDefault();

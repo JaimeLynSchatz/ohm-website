@@ -18,11 +18,11 @@ class GeocoderController < ApplicationController
       @sources.push "latlon"
       @sources.push "osm_nominatim_reverse"
       @sources.push "geonames_reverse" if defined?(GEONAMES_USERNAME)
-    elsif params[:query].match(/^-?[1-9]\d*\W(ce|bce|ad|bc)$/i)  # matches any year, positive or negative
-      @sources.push "start_year"  
     elsif params[:query].match(/^\d{5}(-\d{4})?$/)
       @sources.push "us_postcode"
       @sources.push "osm_nominatim"
+    elsif params[:query].match(/^-?[1-9]\d*\W(ce|bce|ad|bc)$/i)  # matches any year, positive or negative
+      @sources.push "start_year"  
     elsif params[:query].match(/^(GIR 0AA|[A-PR-UWYZ]([0-9]{1,2}|([A-HK-Y][0-9]|[A-HK-Y][0-9]([0-9]|[ABEHMNPRV-Y]))|[0-9][A-HJKS-UW])\s*[0-9][ABD-HJLNP-UW-Z]{2})$/i)
       @sources.push "uk_postcode"
       @sources.push "osm_nominatim"
