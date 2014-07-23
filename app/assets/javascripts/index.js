@@ -332,8 +332,6 @@ $(document).ready(function () {
     console.log("OSM.formatHash(map) = " + OSM.formatHash(map));
     // we're trying something new here
     
-    console.log("Works until here - commented out questionable code");
-    
     if(query == "2008 CE"){
       console.log("query == 2008 CE triggered");
       OSM.router.route("/#map=16/40.7863/-119.2066"+ "&layers=8");

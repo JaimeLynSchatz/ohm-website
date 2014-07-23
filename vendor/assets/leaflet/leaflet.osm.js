@@ -41,6 +41,8 @@ L.OSM.OHM_2009 = L.OSM.TileLayer.extend({
   }
 });
 
+// There be dragons here
+// {t} is for the year query
 L.OSM.OHM_YEAR = L.OSM.TileLayer.extend({
   options: {
     url: 'http://www.openhistoricalmap.org/ohm_year/{t}/{z}/{x}/{y}.png'

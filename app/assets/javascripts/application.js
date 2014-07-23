@@ -88,6 +88,7 @@ function updateLinks(loc, zoom, layers, object) {
     href += OSM.formatHash(args);
 
     link.href = href;
+
   });
 
   var editDisabled = zoom < 13;
