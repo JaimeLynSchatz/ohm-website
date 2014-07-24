@@ -2915,12 +2915,9 @@ L.TileLayer = L.Class.extend({
 		tilePoint.z = this._getZoomForUrl();
 		
 		// TODO: fix this - need to check if year is being queried
-		console.log("checking value of query");
-		if (query) {
-    			temp_query_string = [].map.call( query, function(node){
-        			return node.textContent || node.innerText || "";
-    			}).join("");
-    			console.log("and the query says: " + temp_query_string);
+		console.log("checking value of map");
+		if (this._map){
+    			console.log("what does map say? " + (this._map));
 		}
 	},
 
