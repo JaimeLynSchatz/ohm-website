@@ -2882,9 +2882,10 @@ L.TileLayer = L.Class.extend({
 	},
 
 	// image-specific code (override to implement e.g. Canvas or SVG tile layer)
-
+      // added t: here to support time searches
 	getTileUrl: function (tilePoint) {
 		return L.Util.template(this._url, L.extend({
+			t: 'ohm_2009',
 			s: this._getSubdomain(tilePoint),
 			z: tilePoint.z,
 			x: tilePoint.x,
@@ -2912,6 +2913,15 @@ L.TileLayer = L.Class.extend({
 		}
 
 		tilePoint.z = this._getZoomForUrl();
+		
+		// TODO: fix this - need to check if year is being queried
+		console.log("checking value of query");
+		if (query) {
+    			temp_query_string = [].map.call( query, function(node){
+        			return node.textContent || node.innerText || "";
+    			}).join("");
+    			console.log("and the query says: " + temp_query_string);
+		}
 	},
 
 	_getSubdomain: function (tilePoint) {
