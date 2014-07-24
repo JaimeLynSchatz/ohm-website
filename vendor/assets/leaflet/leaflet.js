@@ -2705,6 +2705,9 @@ L.TileLayer = L.Class.extend({
 
 		if (!this._map) { return; }
 
+		console.log("And we're trying again for this._map");
+		console.dir(this._map);
+
 		var map = this._map,
 		    bounds = map.getPixelBounds(),
 		    zoom = map.getZoom(),
@@ -2913,12 +2916,8 @@ L.TileLayer = L.Class.extend({
 		}
 
 		tilePoint.z = this._getZoomForUrl();
-		
-		// TODO: fix this - need to check if year is being queried
-		console.log("checking value of map");
-		if (this._map){
-    			console.log("what does map say? " + (this._map));
-		}
+		tilePoint.t = this._map.t;
+		console.log("trying for tilePoint.t " + String(this._map.t) );
 	},
 
 	_getSubdomain: function (tilePoint) {

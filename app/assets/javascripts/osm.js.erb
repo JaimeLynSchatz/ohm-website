@@ -141,6 +141,7 @@ OSM = {
     var center, zoom, layers;
     console.log("Let's see what we've got in osm.js.erb");
     console.log(args);
+    
     if (args instanceof L.Map) {
       center = args.getCenter();
       zoom = args.getZoom();
