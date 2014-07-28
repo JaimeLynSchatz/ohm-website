@@ -77,6 +77,7 @@ $(document).ready(function () {
     layerControl: false
   });
 
+  map.t = "ohm_2009";
   map.attributionControl.setPrefix('');
 
   map.updateLayers(params.layers);
@@ -341,11 +342,12 @@ $(document).ready(function () {
       console.log("query == 2009 CE triggered");
       OSM.router.route("/#map=16/40.7863/-119.2066" + "&layers=9");
     }
-    else {
-      console.log("Here's where the big bad gets called in index.js line 342");
-      OSM.router.route("/search?query=" + encodeURIComponent(query)+ OSM.formatHash(map));
-    }
-    
+    else (map.t = query)
+    //else {
+    //  console.log("Here's where the big bad gets called in index.js line 342");
+    //  OSM.router.route("/search?query=" + encodeURIComponent(query)+ OSM.formatHash(map));
+    //}
+
   });
 
   $(".search_form").on("submit", function(e) {

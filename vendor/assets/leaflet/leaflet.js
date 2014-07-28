@@ -2888,7 +2888,7 @@ L.TileLayer = L.Class.extend({
       // added t: here to support time searches
 	getTileUrl: function (tilePoint) {
 		return L.Util.template(this._url, L.extend({
-			t: 'ohm_2009',
+			t: tilePoint.t, //used to be 'ohm_2009'
 			s: this._getSubdomain(tilePoint),
 			z: tilePoint.z,
 			x: tilePoint.x,
@@ -2917,7 +2917,9 @@ L.TileLayer = L.Class.extend({
 
 		tilePoint.z = this._getZoomForUrl();
 		tilePoint.t = this._map.t;
-		console.log("trying for tilePoint.t " + String(this._map.t) );
+		console.log("***********************************************");
+		console.log("trying for tilePoint.t ");
+		console.dir(tilePoint);
 	},
 
 	_getSubdomain: function (tilePoint) {
@@ -3085,7 +3087,8 @@ L.TileLayer.WMS = L.TileLayer.extend({
 
 		    nwPoint = tilePoint.multiplyBy(tileSize),
 		    sePoint = nwPoint.add([tileSize, tileSize]),
-
+                 
+                 t: tilePoint.t,
 		    nw = this._crs.project(map.unproject(nwPoint, tilePoint.z)),
 		    se = this._crs.project(map.unproject(sePoint, tilePoint.z)),
 		    bbox = this._wmsVersion >= 1.3 && this._crs === L.CRS.EPSG4326 ?
