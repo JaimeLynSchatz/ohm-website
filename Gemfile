@@ -92,3 +92,6 @@ group :development, :test do
   gem 'konacha'
   gem 'poltergeist'
 end
+
+# for deloying to heroku
+gem 'rails_12factor', group: :production
